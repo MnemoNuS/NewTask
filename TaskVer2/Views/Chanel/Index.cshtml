@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Chanels</h2>
+<div>
+    <h3>List of chanels</h3>
+    <table>
+        <tr>
+            <td><p>Название</p></td>
+            <td><p>Адрес</p></td>
+            <td></td>
+        </tr>
+        @foreach (var node in ViewBag.Chanels)
+        {
+            <tr>
+                <td><p>@node.name</p></td>
+                <td><p>@node.link</p></td>
+                <td><p><a href="">Редактировать</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
+

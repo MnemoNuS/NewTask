@@ -1,0 +1,55 @@
+﻿
+
+@{
+    ViewBag.Title = "NewsByCategory";
+    string[] CatArray = ViewBag.CatArray;
+}
+
+<div class="jumbotron">
+    <h1>News Only</h1>
+    <p class="lead">News only and nothing else...</p>
+    
+
+</div>
+
+<div style="background-color:black" class="row">
+    <div>
+         <h1 class="page-header" style="color:whitesmoke;  margin:20px; text-decoration-color:none">
+            @ViewBag.Cat
+         </h1>
+    </div>
+     <div style = "color:whitesmoke;  margin:20px; text-decoration:none" >
+             @Html.ActionLink("<< Back то all news", "index", new { } ,new { @class = "button", @style = "color:whitesmoke;   text-decoration:none" })
+    </div>
+    <ul class="breadcrumb">
+        @for (int i = 0; i < ViewBag.CatArray.Length; i++)
+            {
+            <li class="active">
+                @Html.ActionLink(CatArray[i], "NewsByCategory", new { id = i }, new { @style = "color:black; text-decoration-color:none" })
+            </li>
+        }
+    </ul>
+</div>
+
+   <div class="row">
+             
+       
+        @foreach (var news in ViewBag.selectedNews)
+        {
+    
+    
+        <div class="col-md-6 ">
+            <div style ="background-color:lightgrey">
+                <h3 style="margin:20px;">@news.title</h3>
+            </div>
+            <div>
+                <p style="margin:20px">@news.Description</p>
+                <tt style="margin-left:20px">Опубликовано @news.pubDate.ToString("d MMMM yyyy")</tt>
+                <a class="label label-default" style="text-decoration:none" href="@news.link">Источник</a>
+            </div>
+        </div>
+    
+
+
+        }
+   </div>     

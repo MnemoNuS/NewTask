@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TaskVer2.Models.Category>
+
+@{
+    ViewBag.Title = "NewIndex";
+}
+
+<div class="jumbotron">
+    <h1>News Only</h1>
+    <p class="lead">News only and nothing else...</p>
+</div>
+
+<div class="row-black">
+    <div>
+        <h1 class="category-header">
+            All news
+        </h1>
+    </div>
+    <ul class="breadcrumb">
+        <li class="active">
+            @Html.ActionLink("Все новости", "NewIndex", new { }, new { @class = "button", @style = "color:black;   text-decoration:none" })
+        </li>
+
+
+        @foreach (TaskVer2.Models.Category category in Model)
+        {
+            <li class="active">
+                @Html.ActionLink(category.category, "ByCategory", new { id = category.CategoryID }, new { @style = "color:black; text-decoration-color:none" })
+            </li>
+        }
+    </ul>
+</div>
+
+
+@foreach (TaskVer2.Models.Category category in Model)
+{
+
+    <div class="col-md-4">
+        <div class="category-header">
+            <h1>
+                @Html.ActionLink(category.category, "ByCategory", new { id = category.CategoryID }, new { @style = "color:whitesmoke; margin-left:20px; margin:5px; text-decoration:none" })
+            </h1>
+        </div>
+
+        @Helpers.NewsBlock(category.News.ElementAt(0))
+    </div>
+    if (category.CategoryID % 3 == 0)
+    {
+        <div class="row"></div>
+    }
+   
+}

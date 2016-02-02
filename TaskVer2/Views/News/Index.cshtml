@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TaskVer2.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>News Only</h1>
+    <p class="lead">News only and nothing else...</p>
+</div>
+
+
+@Html.Partial("NavigationPanel")
+<div class="row">
+    @foreach (TaskVer2.Models.Category category in Model)
+    {
+
+        <div class="col-md-4">
+            <div class="category-header">
+                <h1>
+                    @Html.ActionLink(category.category, "ByCategory", new { id = category.CategoryID }, new { @style = "color:whitesmoke; margin-left:20px; margin:5px; text-decoration:none" })
+                </h1>
+            </div>
+
+            @Helpers.NewsBlock(category.News.ElementAt(0))
+        </div>
+        if (category.CategoryID % 3 == 0)
+        {
+            <div class="row"></div>
+        }
+
+    }
+</div>

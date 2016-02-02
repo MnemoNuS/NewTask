@@ -1,0 +1,22 @@
+﻿
+<div class="row-black">
+    <div>
+        <h1 class="category-header">
+            @ViewBag.Category
+        </h1>
+    </div>
+    <ul class="breadcrumb">
+        <li class="active link">
+            @Html.ActionLink("Все новости", "Index", new { }, new { @class = "link" })
+        </li>
+
+
+        @foreach (TaskVer2.Models.Category category in ViewBag.Cagegories)
+        {
+            <li class="active">
+                @Html.ActionLink(category.category, "ByCategory", new { id = category.CategoryID }, new { @class = "link" })
+            </li>
+        }
+    </ul>
+</div>
+

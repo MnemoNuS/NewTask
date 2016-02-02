@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>News Only</h1>
+    <p class="lead">News only and nothing else...</p>
+</div>
+
+<div class="row" >
+    
+        
+        <div class="jumbotron col-md-4" style="margin:20px;">
+            <h1>Add your favorite news chanels...</h1>
+            <hr>
+            <p class="lead">
+                You may add any channels you are interested in from any information resource. Create your own collection of the most interesting resources. Click the link to start
+            </p>
+            @Html.ActionLink("Go to chanels...", "../Chanels/index", new { }, new { @class = "btn btn-default" })
+        </div>
+        <div class="jumbotron col-md-6 col-md-offset-6 " style="margin:20px;">
+            <h1>See the news which you choose...</h1>
+            <hr>
+            <p class="lead">
+                See the latest and freshest news delievered from the channels you've connected. Click the link to see. 
+            </p>
+            @Html.ActionLink("Get news...", "../News/UpdateNews", new { }, new { @class = "btn btn-default" })
+        </div>
+           
+        
+        
+        
+        
+   
+</div>

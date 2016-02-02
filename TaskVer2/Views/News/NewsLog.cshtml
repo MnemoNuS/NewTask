@@ -1,0 +1,10 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "NewsLog";
+}
+
+<h2>NewsLog</h2>
+
+@foreach (string row in Model)
+{<p>@row</p>
+}

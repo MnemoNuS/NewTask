@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ByCategory";
+}
+@model TaskVer2.Models.Category
+<h2></h2>
+
+<div class="jumbotron">
+    <h1>News Only</h1>
+    <p class="lead">News only and nothing else...</p>
+</div>
+@Html.Partial("NavigationPanel")
+
+@{int i = 1;}
+<div class="row">
+    @foreach (var news in Model.News)
+    {
+
+
+        <div class="col-md-6">
+            @Helpers.NewsBlock(news)
+        </div>
+        if (i % 2 == 0)
+        {
+            <div class="row"></div>
+        }
+
+        i++;
+    }
+</div>  

@@ -1,0 +1,13 @@
+﻿@helper NewsBlock(TaskVer2.Models.News news)
+{
+    <div class="news-title">
+        <h3>@news.title</h3>
+    </div>
+    <div class="news-body">
+        <p>@news.Description</p>
+        <tt>Опубликовано @news.pubDate.ToString("d MMMM yyyy")</tt>
+        <a class="label label-default" href="@news.link">Источник</a>
+    </div>
+}
+
+
